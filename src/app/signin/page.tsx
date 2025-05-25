@@ -18,7 +18,7 @@ import { signIn } from "@/lib/auth-client";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-export default function SignIn(props: any) {
+export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -92,6 +92,14 @@ export default function SignIn(props: any) {
                   },
                   onResponse: (ctx) => {
                     setLoading(false);
+                    if(ctx.response?.status === 200) {
+                        if (typeof window !== "undefined") {
+                          localStorage.setItem("doozyUserEmail", email);
+                        }
+                        window.location.href = "/dashboard";
+                    }else {
+                        alert("Invalid email or password");
+                    }
                   },
                 }
               );
@@ -533,7 +541,6 @@ export default function SignIn(props: any) {
                 width="0.88em"
                 height="1em"
                 viewBox="0 0 448 512"
-                {...props}
               >
                 <path
                   fill="currentColor"

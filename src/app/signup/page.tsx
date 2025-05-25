@@ -167,6 +167,10 @@ export default function SignUp() {
                     toast.error(ctx.error.message);
                   },
                   onSuccess: async () => {
+                    // Save email to localStorage on successful signup
+                    if (typeof window !== "undefined") {
+                      localStorage.setItem("doozyUserEmail", email);
+                    }
                     router.push("/dashboard");
                   },
                 },

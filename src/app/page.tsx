@@ -8,7 +8,7 @@ export default function Home() {
         <Image
           className="dark:invert"
           src="/doozy-logo.svg"
-          alt="Next.js logo"
+          alt="doozy logo a todo app"
           width={180}
           height={38}
           priority
@@ -17,7 +17,7 @@ export default function Home() {
           className="list-inside text-sm/6 pt-[4rem] text-center sm:text-left mb-[10rem]"
         >
           <li className="mb-2 tracking-[-.01em]">
-            have some tasks to DO...
+            have some tasks TO-DO...
           </li>
           <li className="tracking-[-.01em]">
             do it easy with doozy !!!
@@ -36,6 +36,12 @@ export default function Home() {
             className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-6 sm:h-7 px-3 sm:px-5 w-full sm:w-auto md:w-[158px]"
           >
             signIN
+          </Link>
+          <Link
+            href={"/dashboard"}
+            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-6 sm:h-7 px-3 sm:px-5 w-full sm:w-auto md:w-[158px]"
+          >
+            dashboard
           </Link>
         </div>
       </main>
