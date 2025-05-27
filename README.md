@@ -41,8 +41,18 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## cmds for installing additional packages
 
 npm install sonner
-npm shadcn@latest init
+npx shadcn@latest init
 npx shadcn@latest add card input label checkbox button
 npx @better-auth/cli generate
 npx @better-auth/cli migrate
+<!-- npm install @prisma/extension-accelerate @prisma/client
+npx prisma init --db --output ../app/generated/prisma -->
 
+npm i drizzle-orm @neondatabase/serverless dotenv --save-dev
+npm i -D drizzle-kit tsx --save-dev
+npx drizzle-kit generate
+npx drizzle-kit migrate
+
+
+npm i drizzle-orm @neondatabase/serverless dotenv
+npm i -D drizzle-kit tsx

@@ -1,26 +1,29 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/atoms/button";
 import { useEffect, useState } from "react";
-
-export default function Dashboard() {
+import TodoBoard from "./(components)/todo-board.page";
+import { db } from "@/db/drizzle";
+import { todo } from "@/db/schema";
+export default async function Dashboard() {
   const [userEmail, setUserEmail] = useState<string | null>(null);
 
+    const todoData = await db.select().from(todo);
+    console.log("Fetched todo data:", todoData);
+
   useEffect(() => {
-    if (typeof window !== "undefined") {
       setUserEmail(localStorage.getItem("doozyUserEmail"));
-    }
   }, []);
 
   return (
-    <div className="min-h-screen w-full flex flex-col">
+    <div className="h-[76dvh] w-full flex flex-col">
       {/* Header */}
       <header className="flex items-center justify-between px-8 py-4 border-b border-gray-200">
         <div className="flex items-center gap-2">
           <Link href="/">
             <Image
-              src="/doozy-logo.svg"
+              src="/doozy.png"
               alt="Doozy Logo"
               className="cursor-pointer"
               width={70}
@@ -46,12 +49,12 @@ export default function Dashboard() {
       <main className="flex-1">
         <div className="container mx-auto my-8" style={{ margin: "2rem auto" }}>
           {/* Content goes here */}
+          <TodoBoard />
         </div>
       </main>
-
       {/* Footer (copied from app/page.tsx) */}
       <footer className="flex gap-[24px] flex-wrap items-center justify-center py-4 border-t border-gray-200">
-        <p className="text-xs">Sahil Ambekar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Glow Consultancy Team</p>
+        <p className="text-xs">Sahil Ambekar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Glow Consultancy Team</p>
       </footer>
     </div>
   );

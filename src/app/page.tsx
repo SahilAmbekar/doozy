@@ -1,7 +1,13 @@
+import { db } from "@/db/drizzle";
+import { todo } from "@/db/schema";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+
+  const todoData = await db.select().from(todo);
+  console.log("Fetched todo data:", todoData);
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] p-4 items-center justify-items-center min-h-screen gap-16 font-[family-name:var(--font-geist-sans)] p-8]">
       <main className="flex flex-col items-center row-start-2">
@@ -46,7 +52,7 @@ export default function Home() {
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <p className="text-xs">Sahil Ambekar * Glow Consultancy Team</p>
+        <p className="text-xs">Sahil Ambekar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Glow Consultancy Team</p>
       </footer>
     </div>
   );

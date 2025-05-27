@@ -49,3 +49,7 @@ next-env.d.ts
 
 #database
 /better-auth_migrations
+/app/generated/prisma
+
+/migrations
+/src/db/migrations
