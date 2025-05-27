@@ -1,9 +1,12 @@
 import { db } from "@/db/drizzle";
 import { todo } from "@/db/schema";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function Home() {
+
+  const t = await getTranslations("HomePage");
 
   const todoData = await db.select().from(todo);
   console.log("Fetched todo data:", todoData);
@@ -23,10 +26,10 @@ export default async function Home() {
           className="list-inside text-sm/6 pt-[4rem] text-center sm:text-left mb-[10rem]"
         >
           <li className="mb-2 tracking-[-.01em]">
-            have some tasks TO-DO...
+            {t("headlineOne")}
           </li>
           <li className="tracking-[-.01em]">
-            do it easy with doozy !!!
+            {t("headlineTwo")}
           </li>
         </ol>
 

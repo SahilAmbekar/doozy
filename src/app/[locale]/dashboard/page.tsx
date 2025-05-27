@@ -4,8 +4,10 @@ import Link from "next/link";
 import { Button } from "@/components/atoms/button";
 import { useEffect, useState } from "react";
 import TodoBoard from "./(components)/todo-board.page";
+import { useTranslations } from "next-intl";
 export default function Dashboard() {
   const [userEmail, setUserEmail] = useState<string | null>(null);
+  const t = useTranslations('HomePage');
 
   useEffect(() => {
       setUserEmail(localStorage.getItem("doozyUserEmail"));
@@ -34,7 +36,7 @@ export default function Dashboard() {
           )}
           <Link href="/">
             <Button variant="outline" className="cursor-pointer">
-              Logout
+              {t('logout')}
             </Button>
           </Link>
         </div>

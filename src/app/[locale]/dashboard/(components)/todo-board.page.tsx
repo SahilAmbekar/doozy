@@ -1,13 +1,17 @@
 'use client';
 import { TodoCard } from "@/components/molecules/card";
 import PanelVertical from "@/components/molecules/panel-vertical";
+import { useTranslations } from "next-intl";
 
 export default function TodoBoard() {
+
+    const t = useTranslations('HomePage');
+
 
   return (
     <div className="flex items-center gap-4 justify-center h-[76dvh] bg-gray-100 p-4">
       <PanelVertical>
-        <h1 className="text-2xl font-bold mb-4 text-center">Open</h1>
+        <h1 className="text-2xl font-bold mb-4 text-center">{t('open')}</h1>
         <div className="bg-white shadow-md rounded-lg w-full max-w-md">
           <TodoCard>
             <div className="flex flex-col gap-2">
@@ -33,7 +37,7 @@ export default function TodoBoard() {
         </div>
       </PanelVertical>
       <PanelVertical>
-        <h1 className="text-2xl font-bold mb-4 text-center">In-Progress</h1>
+        <h1 className="text-2xl font-bold mb-4 text-center">{t('inProgress')}</h1>
         <div className="bg-white shadow-md rounded-lg w-full max-w-md">
           <TodoCard>
             <div className="flex flex-col gap-2">
@@ -59,7 +63,7 @@ export default function TodoBoard() {
         </div>
       </PanelVertical>
       <PanelVertical>
-        <h1 className="text-2xl font-bold mb-4 text-center">Closed</h1>
+        <h1 className="text-2xl font-bold mb-4 text-center">{t('closed')}</h1>
         <div className="bg-white shadow-md rounded-lg w-full max-w-md">
           <TodoCard>
             <div className="flex flex-col gap-2">
