@@ -4,13 +4,8 @@ import Link from "next/link";
 import { Button } from "@/components/atoms/button";
 import { useEffect, useState } from "react";
 import TodoBoard from "./(components)/todo-board.page";
-import { db } from "@/db/drizzle";
-import { todo } from "@/db/schema";
-export default async function Dashboard() {
+export default function Dashboard() {
   const [userEmail, setUserEmail] = useState<string | null>(null);
-
-    const todoData = await db.select().from(todo);
-    console.log("Fetched todo data:", todoData);
 
   useEffect(() => {
       setUserEmail(localStorage.getItem("doozyUserEmail"));

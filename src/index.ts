@@ -3,7 +3,7 @@
 // import { eq } from 'drizzle-orm';
 // import { usersTable } from './db/schema';
   
-// const db = drizzle(process.env.DATABASE_URL!);
+// const db = drizzle(process.env.CONNECTION_STRING!);
 // async function main() {
 //   const user: typeof usersTable.$inferInsert = {
 //     name: 'John',
@@ -37,4 +37,4 @@
 import {config} from 'dotenv';
 config({ path: './.env' });
 import { drizzle } from 'drizzle-orm/neon-http';
-const db = drizzle(process.env.DATABASE_URL!);
+const db = drizzle(process.env.CONNECTION_STRING!);

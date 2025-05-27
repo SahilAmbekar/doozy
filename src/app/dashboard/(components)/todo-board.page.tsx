@@ -1,13 +1,8 @@
 'use client';
 import { TodoCard } from "@/components/molecules/card";
 import PanelVertical from "@/components/molecules/panel-vertical";
-import { db } from "@/db/drizzle";
-import { todo } from "@/db/schema";
 
-export default async function TodoBoard() {
-
-  const todos = await db.select().from(todo);
-  console.log("Todos fetched from database:", todos);
+export default function TodoBoard() {
 
   return (
     <div className="flex items-center gap-4 justify-center h-[76dvh] bg-gray-100 p-4">
