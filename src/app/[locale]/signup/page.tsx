@@ -42,6 +42,7 @@ export default function SignUp() {
   };
 
   return (
+    <div className="flex items-center justify-center h-screen bg-gray-100 p-4">
     <Card className="z-50 rounded-md rounded-t-none max-w-md">
       <CardHeader>
         <CardTitle className="text-lg md:text-xl">Sign Up</CardTitle>
@@ -190,6 +191,7 @@ export default function SignUp() {
         </div>
       </CardFooter>
     </Card>
+    </div>
   );
 }
 
