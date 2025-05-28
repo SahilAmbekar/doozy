@@ -15,7 +15,7 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function TodoCard({ className, ...props }: React.ComponentProps<"div">) {
+function CardWithoutContainer({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card"
@@ -98,7 +98,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
 
 export {
   Card,
-  TodoCard,
+  CardWithoutContainer,
   CardHeader,
   CardFooter,
   CardTitle,
